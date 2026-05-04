@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hulp en Diensten | AVhelp</title>
+  <meta name="description" content="Zoek per categorie naar hulp en diensten voor personen met een handicap in Hechtel-Eksel en omgeving.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700;800&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body data-page="diensten">
+  <a class="skip-link" href="#main-content">Spring naar inhoud</a>
+
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="index.html" aria-label="Naar home">
+        <img src="assets/img/logo-avhelp.png" alt="Logo van AVhelp Hechtel-Eksel">
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatie">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" class="site-nav" aria-label="Hoofdnavigatie">
+        <ul>
+          <li><a href="index.html" data-nav="home">Home</a></li>
+          <li><a href="over.html" data-nav="over">Over</a></li>
+          <li><a href="diensten.html" data-nav="diensten">Hulp en Diensten</a></li>
+          <li><a href="rechten.html" data-nav="rechten">Rechten en Premies</a></li>
+          <li><a href="lokaal.html" data-nav="lokaal">Lokaal</a></li>
+          <li><a href="nieuws.html" data-nav="nieuws">Nieuws</a></li>
+          <li><a href="contact.html" data-nav="contact" class="btn btn-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero" data-reveal>
+      <div class="container narrow">
+        <p class="eyebrow">Praktische ondersteuning</p>
+        <h1>Vind hulp die past bij jouw situatie</h1>
+        <p class="lead">Filter per thema of zoek op trefwoord. Zo vind je sneller de juiste richting voor ondersteuning.</p>
+      </div>
+    </section>
+
+    <section class="section" data-reveal>
+      <div class="container">
+        <div class="filter-panel" aria-label="Filters voor diensten">
+          <label for="serviceSearch">Zoeken</label>
+          <input id="serviceSearch" type="search" placeholder="Bijvoorbeeld: vervoer, aanvraag, assistentie" autocomplete="off">
+
+          <div class="filter-buttons" role="group" aria-label="Filter op categorie">
+            <button type="button" class="filter-btn is-active" data-filter="all">Alles</button>
+            <button type="button" class="filter-btn" data-filter="mobiliteit" id="mobiliteit">Mobiliteit</button>
+            <button type="button" class="filter-btn" data-filter="thuiszorg" id="thuiszorg">Thuiszorg</button>
+            <button type="button" class="filter-btn" data-filter="administratie">Administratie</button>
+            <button type="button" class="filter-btn" data-filter="vrije-tijd">Vrije tijd</button>
+          </div>
+        </div>
+
+        <div id="servicesGrid" class="card-grid three" aria-live="polite">
+          <article class="info-card service-card" data-category="mobiliteit" data-search="mobiliteit vervoer parkeerkaart begeleid vervoer rolstoel verplaatsing">
+            <h2>Mobiliteit en vervoer</h2>
+            <p>Verplaatsen met een beperking vraagt om de juiste info en hulpmiddelen. We informeren over de parkeerkaart voor personen met een handicap, aangepast (gemeenschappelijk) vervoer in de regio, en mogelijkheden voor individuele vervoerbegeleiding. We helpen je uitzoeken welke optie in jouw situatie haalbaar is.</p>
+            <a href="contact.html">Vraag begeleiding aan</a>
+          </article>
+
+          <article class="info-card service-card" data-category="thuiszorg" data-search="thuiszorg zorg aan huis ondersteuning persoonlijk assistent hulp dagelijks leven">
+            <h2>Thuiszorg en assistentie</h2>
+            <p>Zo lang mogelijk zelfstandig thuis wonen: dat is voor veel mensen een prioriteit. AVhelp helpt je wegwijs in het aanbod van thuiszorgdiensten, poetshulp, persoonlijke assistentie en mobiele zorgverlening. We bekijken samen wat past bij jouw situatie en verwijs je door naar de juiste aanbieder.</p>
+            <a href="contact.html">Bekijk mogelijkheden</a>
+          </article>
+
+          <article class="info-card service-card" data-category="administratie" data-search="administratie dossier aanvraag formulieren tegemoetkoming rechten document">
+            <h2>Administratieve hulp</h2>
+            <p>Aanvragen voor tegemoetkomingen, attesten, dossiers bij het VAPH of de mutualiteit: papierwerk kan overweldigend zijn. We leggen stap voor stap uit wat er nodig is, helpen je de juiste documenten op te zoeken en verwijzen door naar professionele diensten als het complexer wordt.</p>
+            <a href="rechten.html">Bekijk rechteninfo</a>
+          </article>
+
+          <article class="info-card service-card" data-category="vrije-tijd" data-search="vrije tijd activiteiten inclusie sociaal contact ontmoeting evenementen">
+            <h2>Activiteiten en ontmoeting</h2>
+            <p>Deelnemen aan het sociale leven is even belangrijk als praktische hulp. AVhelp brengt lokale activiteiten, evenementen en ontmoetingsmomenten in kaart die open staan voor iedereen, ook personen met een beperking. Inclusie begint met aanwezig zijn.</p>
+            <a href="nieuws.html">Bekijk activiteiten</a>
+          </article>
+
+          <article class="info-card service-card" data-category="mobiliteit" data-search="woning aanpassing woningtoegang drempelvrij hulpmiddelen renovatie toegankelijkheid">
+            <h2>Toegankelijk wonen</h2>
+            <p>Een drempelvrije woning, een aangepaste badkamer of extra handgrepen: woningaanpassingen vergroten de zelfstandigheid en veiligheid aanzienlijk. We informeren over premies voor woningaanpassing, erkende aannemers en mogelijkheden voor advies aan huis via gespecialiseerde diensten.</p>
+            <a href="rechten.html#premies">Bekijk woningpremies</a>
+          </article>
+
+          <article class="info-card service-card" data-category="administratie" data-search="persoonlijk traject hulpvraag advies gesprek begeleiding avhelp individueel">
+            <h2>Persoonlijk adviesgesprek</h2>
+            <p>Weet je niet goed waar te beginnen, of heb je een vraag die je niet direct kan categoriseren? Neem contact op voor een persoonlijk gesprek. We luisteren, denken mee en maken een helder overzicht van welke stappen voor jou zinvol zijn — zonder verplichtingen.</p>
+            <a href="contact.html">Plan een gesprek</a>
+          </article>
+        </div>
+
+        <p id="noResults" class="no-results" hidden>Geen resultaten gevonden. Probeer een ander trefwoord of kies "Alles".</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p><strong>AVhelp Hechtel-Eksel</strong> | Samen bouwen aan toegankelijkheid.</p>
+      <p>Laatste update: mei 2026 | <span id="year"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
