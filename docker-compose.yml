@@ -1,0 +1,9 @@
+services:
+  avhelp-sanderke-be:
+    container_name: avhelp-sanderke-be
+    build:
+      context: .
+    ports:
+      - "8086:5000"
+    restart: unless-stopped
+    network_mode: backend

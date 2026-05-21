@@ -1,5 +1,45 @@
 const body = document.body;
 
+function setupThemeToggle() {
+  const toggle = document.querySelector('.theme-toggle');
+  if (!toggle) {
+    return;
+  }
+
+  const root = document.documentElement;
+  const storageKey = 'avhelp-theme';
+
+  const applyTheme = (theme) => {
+    const safeTheme = theme === 'dark' ? 'dark' : 'light';
+    root.setAttribute('data-theme', safeTheme);
+    sessionStorage.setItem(storageKey, safeTheme);
+    const darkEnabled = safeTheme === 'dark';
+    const symbol = toggle.querySelector('.theme-symbol');
+    const text = toggle.querySelector('.theme-text');
+
+    if (symbol) {
+      symbol.innerHTML = darkEnabled ? '&#127769;' : '&#9728;';
+    }
+    if (text) {
+      text.textContent = darkEnabled ? 'Light mode' : 'Dark mode';
+    }
+
+    toggle.setAttribute('aria-pressed', String(darkEnabled));
+    toggle.setAttribute(
+      'aria-label',
+      darkEnabled ? 'Schakel naar light mode' : 'Schakel naar dark mode'
+    );
+  };
+
+  const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+
+  toggle.addEventListener('click', () => {
+    const activeTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(activeTheme === 'dark' ? 'light' : 'dark');
+  });
+}
+
 function setupMobileMenu() {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
@@ -214,6 +254,7 @@ function setupFooterYear() {
   }
 }
 
+setupThemeToggle();
 setupMobileMenu();
 setupActiveNav();
 setupServiceFilter();

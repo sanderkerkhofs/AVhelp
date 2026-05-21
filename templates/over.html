@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Over AVhelp | Hechtel-Eksel</title>
+  <meta name="description" content="Leer AVhelp kennen: missie, waarden en lokale werking in Hechtel-Eksel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700;800&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+  <script>
+    (function () {
+      const saved = sessionStorage.getItem('avhelp-theme');
+      document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body data-page="over">
+  <a class="skip-link" href="#main-content">Spring naar inhoud</a>
+
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="{{ url_for('index') }}" aria-label="Naar home">
+        <img src="{{ url_for('static', filename='img/logo-avhelp.png') }}" alt="Logo van AVhelp Hechtel-Eksel">
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Schakel naar dark mode" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">&#9728;</span><span class="theme-text visually-hidden">Dark mode</span></button>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatie">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" class="site-nav" aria-label="Hoofdnavigatie">
+        <ul>
+          <li><a href="{{ url_for('index') }}" data-nav="home">Home</a></li>
+          <li><a href="{{ url_for('over') }}" data-nav="over">Over</a></li>
+          <li><a href="{{ url_for('nieuws') }}" data-nav="nieuws">Nieuws</a></li>
+          <li><a href="{{ url_for('contact') }}" data-nav="contact" class="btn btn-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero" data-reveal>
+      <div class="container page-hero-shell">
+        <div>
+          <p class="eyebrow">Over onze vereniging</p>
+          <h1>AVhelp: lokaal, menselijk en praktisch</h1>
+          <p class="lead">AVhelp is een lokale vrijwilligersvereniging in Hechtel-Eksel die zich inzet voor personen met een handicap en hun omgeving. We helpen mensen de weg te vinden met duidelijke informatie en warme doorverwijzing.</p>
+          <div class="page-hero-actions">
+            <a class="btn btn-primary" href="{{ url_for('contact') }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Neem contact op</a>
+            <a class="btn btn-ghost" href="{{ url_for('nieuws') }}"><i class="fa-regular fa-newspaper" aria-hidden="true"></i>Bekijk nieuws</a>
+          </div>
+        </div>
+        <aside class="page-hero-card accent-card">
+          <p class="card-label">Kern van AVhelp</p>
+          <h2>Samen bouwen aan toegankelijkheid en gelijkheid</h2>
+          <ul class="page-hero-points">
+            <li>lokale vereniging met een menselijk gezicht;</li>
+            <li>duidelijke info zonder onnodige drempels;</li>
+            <li>ruimte voor samenwerking en gerichte doorverwijzing.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" data-reveal>
+      <div class="container stats-strip">
+        <article class="stat-card">
+          <strong><i class="fa-solid fa-people-group" aria-hidden="true"></i> Lokaal</strong>
+          <span>Verankerd in Hechtel-Eksel en directe omgeving.</span>
+        </article>
+        <article class="stat-card">
+          <strong><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Duidelijk</strong>
+          <span>Begrijpelijke taal en concrete volgende stappen.</span>
+        </article>
+        <article class="stat-card">
+          <strong><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Bereikbaar</strong>
+          <span>Vlot contact via mail, telefoon of een vraaggesprek.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" data-reveal>
+      <div class="container card-grid three">
+        <article class="info-card">
+          <h2>Onze missie</h2>
+          <p>AVhelp helpt mensen met een handicap, familie en mantelzorgers hun weg te vinden in zorg, rechten en lokale diensten. We maken informatie begrijpelijk en verwijzen gericht door zonder overbodige omwegen.</p>
+        </article>
+        <article class="info-card">
+          <h2>Onze waarden</h2>
+          <p>We staan voor respect, toegankelijkheid, nabijheid en samenwerking met bestaande partners in Hechtel-Eksel en de regio.</p>
+        </article>
+        <article class="info-card">
+          <h2>Onze aanpak</h2>
+          <p>Elke vraag is anders. We luisteren eerst, bepalen de meest haalbare stap en verwijzen daarna door naar de juiste dienst of contactpersoon.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p><strong>AVhelp Hechtel-Eksel</strong> | Samen bouwen aan toegankelijkheid en gelijkheid.</p>
+      <p>Laatste update: mei 2026 | <span id="year"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
