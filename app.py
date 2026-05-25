@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from flask import Flask, redirect, render_template, send_from_directory, url_for
 
 
