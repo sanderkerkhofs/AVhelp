@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from pathlib import Path
+
+from flask import Flask, redirect, render_template, send_from_directory, url_for
 
 
 app = Flask(
@@ -6,6 +8,8 @@ app = Flask(
     static_folder="assets",
     static_url_path="/assets",
 )
+
+OLD_SITE_DIR = Path(__file__).resolve().parent / "old_version"
 
 
 @app.get("/")
@@ -30,6 +34,23 @@ def nieuws():
 @app.get("/contact.html")
 def contact():
     return render_template("contact.html")
+
+
+@app.get("/old")
+def old_site_root():
+    return redirect(url_for("old_site_index"))
+
+
+@app.get("/old/")
+def old_site_index():
+    return send_from_directory(OLD_SITE_DIR, "index.html")
+
+
+@app.get("/old/<path:requested_path>")
+def old_site(requested_path: str):
+    if requested_path.endswith("/"):
+        requested_path = f"{requested_path}index.html"
+    return send_from_directory(OLD_SITE_DIR, requested_path)
 
 
 if __name__ == "__main__":
