@@ -14,7 +14,7 @@
   --shadow-strong: 0 24px 56px rgba(0, 59, 113, 0.14);
   --radius: 16px;
   --radius-sm: 10px;
-  --container: 1120px;
+  --container: 880px;
   --header-bg: rgba(251, 253, 255, 0.88);
 }
 
@@ -108,7 +108,26 @@ p {
 }
 
 .narrow {
-  max-width: 780px;
+  max-width: 680px;
+  text-align: center;
+}
+
+/* Alle inhoud staat in gestapelde, gecentreerde blokken. */
+.hero-copy,
+.page-hero-shell,
+.section-heading,
+.info-card,
+.stat-card,
+.hero-card,
+.page-hero-card,
+.callout-banner,
+.footer-grid > div {
+  text-align: center;
+}
+
+.lead,
+.hero-note {
+  margin-inline: auto;
 }
 
 .skip-link {
@@ -152,7 +171,7 @@ html[data-theme="dark"] .site-header {
 }
 
 .brand img {
-  width: 180px;
+  width: min(150px, 42vw);
 }
 
 .theme-toggle {
@@ -209,16 +228,24 @@ html[data-theme="dark"] .site-header {
   background: var(--color-primary);
 }
 
+/* Uitklapmenu hangt onder de header, ongeacht hoe hoog die header is. */
 .site-nav {
-  position: fixed;
-  inset: 73px 0 auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background: var(--color-surface);
-  transform: translateY(-140%);
-  transition: transform 240ms ease;
   border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: transform 200ms ease, opacity 200ms ease, visibility 200ms;
 }
 
 .site-nav.is-open {
+  opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 
@@ -326,16 +353,25 @@ html[data-theme="dark"] .page-hero-card.dark-card {
 .check-list,
 .mini-list {
   margin: 0;
-  padding-left: 1.15rem;
+  padding: 0;
+  list-style: none;
   display: grid;
   gap: 0.45rem;
 }
 
+.hero-actions,
 .page-hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.hero-actions .btn,
+.page-hero-actions .btn {
+  width: 100%;
+  max-width: 320px;
 }
 
 .stats-strip {
@@ -377,9 +413,31 @@ html[data-theme="dark"] .page-hero-card.dark-card {
   height: 100%;
 }
 
+.service-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.service-card p:last-child {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
 .service-card a {
   margin-top: auto;
   font-weight: 700;
+}
+
+.service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  margin: 0 auto 0.85rem;
+  border-radius: 14px;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
 }
 
 .hero-grid {
@@ -406,31 +464,25 @@ html[data-theme="dark"] .page-hero-card.dark-card {
 }
 
 .hero-note {
-  max-width: 58ch;
-  margin-top: 1rem;
-  padding: 0.8rem 1rem;
-  border-left: 4px solid var(--color-accent);
+  max-width: 52ch;
+  margin-top: 1.1rem;
+  padding: 0.9rem 1.1rem;
+  border-top: 4px solid var(--color-accent);
   background: rgba(255, 255, 255, 0.66);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1.3rem;
+  border-radius: var(--radius-sm);
 }
 
 .hero-trust {
   display: grid;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
+  gap: 0.7rem;
+  margin: 1.6rem auto 0;
+  max-width: 420px;
 }
 
 .hero-trust div {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 0.75rem;
+  flex-direction: column;
+  gap: 0.15rem;
   align-items: center;
   padding: 0.8rem 1rem;
   background: rgba(255, 255, 255, 0.78);
@@ -441,7 +493,6 @@ html[data-theme="dark"] .page-hero-card.dark-card {
 
 .hero-trust strong {
   font-family: "Chivo", sans-serif;
-  min-width: 4rem;
 }
 
 .hero-card,
@@ -499,7 +550,8 @@ html[data-theme="dark"] .hero-card-quote {
 
 .hero-card ul {
   margin: 0;
-  padding-left: 1.1rem;
+  padding: 0;
+  list-style: none;
   display: grid;
   gap: 0.6rem;
 }
@@ -601,15 +653,25 @@ html[data-theme="dark"] .preview-panel-light {
 .chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .chip {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  padding: 0.35rem 0.8rem;
+  padding: 0.4rem 0.95rem;
   font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+.chip i {
+  color: var(--color-accent);
+  margin-right: 0.35rem;
 }
 
 .filter-panel {
@@ -762,6 +824,7 @@ html[data-theme="dark"] .contact-person-grid {
 }
 
 .person-card {
+  text-align: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -845,18 +908,118 @@ html[data-theme="dark"] .site-footer {
 }
 
 .footer-wrap {
-  padding: 1rem 0 1.2rem;
+  padding: 1.6rem 0 1.2rem;
 }
 
-[data-reveal] {
+.footer-grid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.footer-brand {
+  font-family: "Chivo", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.footer-heading {
+  font-family: "Chivo", sans-serif;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links i {
+  margin-right: 0.35rem;
+}
+
+.footer-legal {
+  text-align: center;
+  margin: 1.4rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+/* In dark mode is --color-primary licht, dus witte tekst erop leest niet. */
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .site-nav a.active,
+html[data-theme="dark"] .filter-btn.is-active {
+  color: #0d1824;
+}
+
+/* Componenten met een vaste lichte achtergrond hun eigen dark-variant geven,
+   anders staat er lichte tekst op een lichte kaart. */
+html[data-theme="dark"] .hero-note {
+  background: rgba(20, 36, 54, 0.72);
+}
+
+html[data-theme="dark"] .hero-trust div {
+  background: rgba(20, 36, 54, 0.82);
+  border-color: rgba(155, 197, 244, 0.2);
+}
+
+html[data-theme="dark"] .stat-card {
+  background: rgba(20, 36, 54, 0.86);
+}
+
+html[data-theme="dark"] .callout-banner {
+  background: linear-gradient(180deg, rgba(20, 36, 54, 0.95), rgba(49, 67, 37, 0.55));
+  border-color: rgba(159, 210, 106, 0.28);
+}
+
+html[data-theme="dark"] .page-hero-card {
+  background: linear-gradient(180deg, rgba(20, 36, 54, 0.96), rgba(18, 31, 46, 0.92));
+  border-color: rgba(155, 197, 244, 0.2);
+}
+
+html[data-theme="dark"] .page-hero-card.accent-card {
+  background: linear-gradient(180deg, rgba(159, 210, 106, 0.14), rgba(20, 36, 54, 0.95));
+}
+
+html[data-theme="dark"] .filter-panel {
+  background: linear-gradient(180deg, rgba(20, 36, 54, 0.96), rgba(18, 31, 46, 0.92));
+}
+
+html[data-theme="dark"] .service-icon {
+  background: rgba(155, 197, 244, 0.16);
+}
+
+html.js [data-reveal] {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 500ms ease, transform 500ms ease;
 }
 
-[data-reveal].is-visible {
+html.js [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (min-width: 740px) {
@@ -873,14 +1036,21 @@ html[data-theme="dark"] .site-footer {
     margin-left: 0.45rem;
   }
 
+  .brand img {
+    width: 180px;
+  }
+
   .site-nav {
     order: 2;
     margin-left: auto;
     position: static;
     inset: auto;
     transform: none;
+    opacity: 1;
+    visibility: visible;
     background: transparent;
     border-bottom: 0;
+    box-shadow: none;
   }
 
   .site-nav ul {
@@ -894,44 +1064,35 @@ html[data-theme="dark"] .site-footer {
     padding: 0.45rem 0.65rem;
   }
 
-  .hero-grid {
-    grid-template-columns: 1fr;
-    align-items: start;
+  .hero-actions,
+  .page-hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .page-hero-shell {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-
-  .hero-trust {
-    grid-template-columns: 1fr;
-  }
-
-  .split-heading {
-    grid-template-columns: 1fr;
+  .hero-actions .btn,
+  .page-hero-actions .btn {
+    width: auto;
   }
 
   .preview-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     align-items: stretch;
   }
 
-  .stats-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .card-grid.two {
-    grid-template-columns: 1fr;
-  }
-
+  /* Vanaf hier maximaal twee blokken naast elkaar, verder altijd gestapeld. */
+  .card-grid.two,
   .card-grid.three {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-    align-items: start;
+  /* Een oneven laatste kaart komt netjes in het midden. */
+  .card-grid > *:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.625rem);
+    margin-inline: auto;
   }
 
   .contact-person-grid {
@@ -940,5 +1101,78 @@ html[data-theme="dark"] .site-footer {
     align-items: stretch;
     gap: 1.25rem;
     padding: 1.2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Op desktop mag de inhoud de volle breedte benutten; de blokindeling blijft. */
+@media (min-width: 1000px) {
+  :root {
+    --container: 1160px;
+  }
+
+  .narrow {
+    max-width: 900px;
+  }
+
+  .hero,
+  .page-hero {
+    padding: 4rem 0 2.6rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .hero-trust {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+  }
+
+  .hero-stack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .hero-stack .hero-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stats-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* In drie kolommen is er geen wees-kaart om te centreren. */
+  .card-grid.three > *:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+    margin-inline: 0;
+  }
+
+  .hero-note {
+    max-width: 62ch;
+  }
+}
+
+/* Pas naast elkaar als de contactkaarten echt genoeg breedte krijgen. */
+@media (min-width: 1200px) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .contact-person-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}AV Help{% endblock %}</title>
+  <meta name="description" content="{% block description %}AV Help ondersteunt personen met een beperking bij vragen rond mobiliteit, hulpmiddelen, vervoer, toegankelijkheid en administratie.{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700;800&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+  <script>
+    (function () {
+      const saved = sessionStorage.getItem('avhelp-theme');
+      document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+      // Pas de reveal-animatie enkel toe als JS werkt, zodat inhoud nooit onzichtbaar blijft.
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body data-page="{% block page %}{% endblock %}">
+  <a class="skip-link" href="#main-content">Spring naar inhoud</a>
+
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="{{ url_for('index') }}" aria-label="Naar home">
+        <img src="{{ url_for('static', filename='img/logo-avhelp.png') }}" alt="Logo van AV Help">
+      </a>
+
+      <button class="theme-toggle" type="button" aria-label="Schakel naar dark mode" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">&#9728;</span><span class="theme-text visually-hidden">Dark mode</span></button>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatie">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="main-nav" class="site-nav" aria-label="Hoofdnavigatie">
+        <ul>
+          <li><a href="{{ url_for('index') }}" data-nav="home">Wie zijn wij</a></li>
+          <li><a href="{{ url_for('diensten') }}" data-nav="diensten">Wat doen wij</a></li>
+          <li><a href="{{ url_for('contact') }}" data-nav="contact" class="btn btn-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand"><strong>AV Help</strong></p>
+          <p>Samen bouwen aan toegankelijkheid en gelijkheid.</p>
+        </div>
+        <div>
+          <p class="footer-heading">Snel naar</p>
+          <ul class="footer-links">
+            <li><a href="{{ url_for('index') }}">Wie zijn wij</a></li>
+            <li><a href="{{ url_for('diensten') }}">Wat doen wij</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:info@avhelp.be"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@avhelp.be</a></li>
+            <li><a href="tel:+32475203005"><i class="fa-solid fa-phone" aria-hidden="true"></i> Rik &mdash; +32 475 203 005</a></li>
+            <li><a href="tel:+32478554189"><i class="fa-solid fa-phone" aria-hidden="true"></i> Robin &mdash; +32 478 554 189</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span id="year"></span> AV Help</p>
+    </div>
+  </footer>
+</body>
+</html>

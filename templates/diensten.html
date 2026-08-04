@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block page %}diensten{% endblock %}
+{% block title %}Wat doen wij | AV Help{% endblock %}
+{% block description %}AV Help biedt ondersteuning en advies rond mobiliteit, hulpmiddelen, vervoer, toegankelijkheid, administratie, documenten, tegemoetkomingen en overheidsdiensten.{% endblock %}
+
+{% block content %}
+<section class="page-hero" data-reveal>
+  <div class="container page-hero-shell">
+    <div>
+      <p class="eyebrow">Wat doen wij</p>
+      <h1>Ondersteuning en advies, afgestemd op jouw vraag</h1>
+      <p class="lead">Van een aanvraag die vastloopt tot de vraag welk hulpmiddel past: we zoeken het samen uit. Hieronder vind je de thema's waarrond wij ondersteuning en advies bieden.</p>
+      <div class="page-hero-actions">
+        <a class="btn btn-primary" href="{{ url_for('contact') }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Stel je vraag</a>
+        <a class="btn btn-ghost" href="{{ url_for('index') }}"><i class="fa-regular fa-circle-question" aria-hidden="true"></i>Wie zijn wij</a>
+      </div>
+    </div>
+    <aside class="page-hero-card accent-card">
+      <p class="card-label">Zo pakken we het aan</p>
+      <ul class="page-hero-points">
+        <li>je vertelt je vraag, wij luisteren;</li>
+        <li>we zoeken samen naar de beste oplossing;</li>
+        <li>we helpen je verder of verwijzen gericht door.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section" data-reveal>
+  <div class="container">
+    <div class="section-heading">
+      <h2>Waarbij kunnen wij helpen?</h2>
+      <p class="lead">Wij bieden ondersteuning en advies rond:</p>
+    </div>
+    <div class="card-grid three">
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-wheelchair-move" aria-hidden="true"></i></p>
+        <h3>Mobiliteit</h3>
+        <p>Advies over je verplaatsingen binnen- en buitenshuis, en over wat er mogelijk is om zelfstandig op weg te blijven.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-toolbox" aria-hidden="true"></i></p>
+        <h3>Hulpmiddelen</h3>
+        <p>Welk hulpmiddel past bij jouw situatie, waar vind je het en welke ondersteuning bestaat er bij de aankoop of huur?</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-van-shuttle" aria-hidden="true"></i></p>
+        <h3>Vervoer</h3>
+        <p>Informatie over aangepast vervoer en de mogelijkheden om je afspraken, werk en activiteiten vlot te bereiken.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-universal-access" aria-hidden="true"></i></p>
+        <h3>Toegankelijkheid</h3>
+        <p>Advies over drempels thuis en in de publieke ruimte, en over aanpassingen die het dagelijkse leven makkelijker maken.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-folder-open" aria-hidden="true"></i></p>
+        <h3>Administratieve vragen</h3>
+        <p>Brieven, formulieren of beslissingen die je niet meteen begrijpt? We nemen ze samen door in klare taal.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-file-pen" aria-hidden="true"></i></p>
+        <h3>Invullen van documenten</h3>
+        <p>We helpen je documenten correct en volledig invullen, zodat je aanvraag niet onnodig vertraging oploopt.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></p>
+        <h3>Aanvragen van tegemoetkomingen</h3>
+        <p>Uitleg over waar je recht op kan hebben en begeleiding bij het indienen en opvolgen van je aanvraag.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></p>
+        <h3>Wegwijs in overheidsdiensten</h3>
+        <p>We helpen je de juiste dienst of instantie te vinden, zodat je niet van het kastje naar de muur wordt gestuurd.</p>
+      </article>
+      <article class="info-card service-card">
+        <p class="service-icon"><i class="fa-regular fa-comments" aria-hidden="true"></i></p>
+        <h3>Andere vragen</h3>
+        <p>Staat jouw vraag er niet tussen? Stel ze gerust. Kunnen we zelf niet helpen, dan zoeken we mee wie dat wel kan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section accent" data-reveal>
+  <div class="container narrow">
+    <div class="section-heading">
+      <h2>Onze aanpak</h2>
+    </div>
+    <p>Bij AV Help staan persoonlijke begeleiding, respect en betrokkenheid centraal.</p>
+    <p>We luisteren naar elke vraag, zoeken samen naar de beste oplossing en zorgen ervoor dat niemand er alleen voor staat.</p>
+    <p>Samen bouwen we aan een samenleving waarin iedereen de ondersteuning krijgt die hij of zij nodig heeft om volwaardig te kunnen deelnemen.</p>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('contact') }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Neem contact op</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

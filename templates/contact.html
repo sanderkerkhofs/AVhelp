@@ -1,99 +1,58 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | AVhelp Hechtel-Eksel</title>
-  <meta name="description" content="Neem contact op met AVhelp voor persoonlijke begeleiding, vragen en lokale doorverwijzing.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700;800&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
-  <script>
-    (function () {
-      const saved = sessionStorage.getItem('avhelp-theme');
-      document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
-    })();
-  </script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-</head>
-<body data-page="contact">
-  <a class="skip-link" href="#main-content">Spring naar inhoud</a>
+{% extends "base.html" %}
 
-  <header class="site-header">
-    <div class="container header-wrap">
-      <a class="brand" href="{{ url_for('index') }}" aria-label="Naar home">
-        <img src="{{ url_for('static', filename='img/logo-avhelp.png') }}" alt="Logo van AVhelp Hechtel-Eksel">
-      </a>
-      <button class="theme-toggle" type="button" aria-label="Schakel naar dark mode" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">&#9728;</span><span class="theme-text visually-hidden">Dark mode</span></button>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatie">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav" class="site-nav" aria-label="Hoofdnavigatie">
-        <ul>
-          <li><a href="{{ url_for('index') }}" data-nav="home">Home</a></li>
-          <li><a href="{{ url_for('over') }}" data-nav="over">Over</a></li>
-          <li><a href="{{ url_for('nieuws') }}" data-nav="nieuws">Nieuws</a></li>
-          <li><a href="{{ url_for('contact') }}" data-nav="contact" class="btn btn-nav">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+{% block page %}contact{% endblock %}
+{% block title %}Contact | AV Help{% endblock %}
+{% block description %}Neem contact op met AV Help voor persoonlijke begeleiding, advies en gerichte doorverwijzing.{% endblock %}
 
-  <main id="main-content">
-    <section class="page-hero" data-reveal>
-      <div class="container narrow">
-        <p class="eyebrow">Contact en begeleiding</p>
-        <h1>Stel je vraag aan AVhelp</h1>
-        <p class="lead">Heb je een vraag, wil je begeleiding of zoek je de juiste doorverwijzing? Contact opnemen moet eenvoudig voelen. Daarom tonen we hier al een presenteerbaar contactvoorbeeld op basis van de feedbackmail.</p>
-      </div>
+{% block content %}
+<section class="page-hero" data-reveal>
+  <div class="container narrow">
+    <p class="eyebrow">Contact</p>
+    <h1>Stel je vraag aan AV Help</h1>
+    <p class="lead">Heb je een vraag, wil je begeleiding of zoek je de juiste doorverwijzing? Contact opnemen mag eenvoudig zijn. Bel of mail ons gerust &mdash; we helpen je zo snel mogelijk verder.</p>
+  </div>
+</section>
+
+<section class="section" data-reveal>
+  <div class="container contact-grid">
+    <article class="info-card">
+      <h2>Rechtstreeks contact</h2>
+      <p><strong><i class="fa-regular fa-envelope" aria-hidden="true"></i> E-mail:</strong> <a href="mailto:info@avhelp.be">info@avhelp.be</a></p>
+      <p><strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Regio:</strong> Hechtel-Eksel en omgeving (Limburg)</p>
+      <p><strong><i class="fa-regular fa-clock" aria-hidden="true"></i> Bereikbaarheid:</strong><br>
+        Aarzel niet om te bellen of te mailen.<br>
+        We nemen zo snel mogelijk contact met je op.
+      </p>
+      <p>Je hoeft je vraag niet op voorhand uit te schrijven. Vertel gewoon waar je mee zit, dan bekijken we samen wat de volgende stap is.</p>
+    </article>
+
+    <section class="contact-person-grid" aria-label="Contactpersonen">
+      <article class="person-card">
+        <img class="person-avatar" src="{{ url_for('static', filename='img/person-placeholder.svg') }}" alt="Profielfoto placeholder voor Rik Weltjens">
+        <h3>Rik Weltjens</h3>
+        <p><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Contactpersoon AV Help</p>
+        <p><a href="tel:+32475203005"><i class="fa-solid fa-phone" aria-hidden="true"></i> +32 475 203 005</a></p>
+        <p><a href="mailto:info@avhelp.be"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@avhelp.be</a></p>
+      </article>
+
+      <article class="person-card">
+        <img class="person-avatar" src="{{ url_for('static', filename='img/person-placeholder.svg') }}" alt="Profielfoto placeholder voor Robin Agten">
+        <h3>Robin Agten</h3>
+        <p><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Contactpersoon AV Help</p>
+        <p><a href="tel:+32478554189"><i class="fa-solid fa-phone" aria-hidden="true"></i> +32 478 554 189</a></p>
+        <p><a href="mailto:info@avhelp.be"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@avhelp.be</a></p>
+      </article>
     </section>
+  </div>
+</section>
 
-    <section class="section" data-reveal>
-      <div class="container contact-grid">
-        <article class="info-card">
-          <h2>Rechtstreeks contact</h2>
-          <p><strong><i class="fa-regular fa-envelope" aria-hidden="true"></i> Centraal e-mailadres:</strong> <a href="mailto:info@avhelp.be">info@avhelp.be</a></p>
-          <p><strong><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Locatie:</strong> Hechtel-Eksel (Limburg)</p>
-          <p><strong><i class="fa-regular fa-clock" aria-hidden="true"></i> Bereikbaarheid:</strong><br>
-            Heb je een vraag of wil je meer inlichtingen?<br>
-            Aarzel niet om te bellen of te mailen.<br>
-            Definitieve contactafspraken kunnen later nog verfijnd worden.
-          </p>
-          <p>Heb je een vraag of wil je extra informatie? Neem gerust contact op. We helpen je graag zo snel mogelijk verder.</p>
-        </article>
-
-        <section class="contact-person-grid" aria-label="Contactpersonen">
-          <article class="person-card">
-            <img class="person-avatar" src="{{ url_for('static', filename='img/person-placeholder.svg') }}" alt="Generieke profielfoto placeholder voor Rik Weltjens">
-            <h3>Rik Weltjens</h3>
-            <p><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Contactpersoon AVhelp</p>
-            <p><a href="tel:+32475203005"><i class="fa-solid fa-phone" aria-hidden="true"></i> +32 475 203 005</a></p>
-            <p><a href="mailto:info@avhelp.be"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@avhelp.be</a></p>
-          </article>
-
-          <article class="person-card">
-            <img class="person-avatar" src="{{ url_for('static', filename='img/person-placeholder.svg') }}" alt="Generieke profielfoto placeholder voor Robin Agten">
-            <h3>Robin Agten</h3>
-            <p><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Contactpersoon AVhelp</p>
-            <p><a href="tel:+32478554189"><i class="fa-solid fa-phone" aria-hidden="true"></i> +32 478 554 189</a></p>
-            <p><a href="mailto:info@avhelp.be"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@avhelp.be</a></p>
-          </article>
-        </section>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <p><strong>AVhelp Hechtel-Eksel</strong> | Samen bouwen aan toegankelijkheid en gelijkheid.</p>
-      <p>Laatste update: mei 2026 | <span id="year"></span></p>
+<section class="section accent" data-reveal>
+  <div class="container narrow callout-banner">
+    <h2>Waarmee kunnen we je helpen?</h2>
+    <p>Mobiliteit, hulpmiddelen, vervoer, toegankelijkheid, administratie, documenten, tegemoetkomingen of de weg vinden bij overheidsdiensten: je vraag is welkom.</p>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('diensten') }}"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>Bekijk wat wij doen</a>
     </div>
-  </footer>
-</body>
-</html>
+  </div>
+</section>
+{% endblock %}

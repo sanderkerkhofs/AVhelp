@@ -1,110 +1,104 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AVhelp Hechtel-Eksel | Samen naar toegankelijke hulp</title>
-  <meta name="description" content="AVhelp Hechtel-Eksel helpt mensen met een handicap, familie en mantelzorgers snel de juiste informatie en lokale ondersteuning te vinden.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700;800&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
-  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
-  <script>
-    (function () {
-      const saved = sessionStorage.getItem('avhelp-theme');
-      document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
-    })();
-  </script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-</head>
-<body data-page="home">
-  <a class="skip-link" href="#main-content">Spring naar inhoud</a>
+{% extends "base.html" %}
 
-  <header class="site-header">
-    <div class="container header-wrap">
-      <a class="brand" href="{{ url_for('index') }}" aria-label="Naar home">
-        <img src="{{ url_for('static', filename='img/logo-avhelp.png') }}" alt="Logo van AVhelp Hechtel-Eksel">
-      </a>
+{% block page %}home{% endblock %}
+{% block title %}AV Help | Wie zijn wij{% endblock %}
+{% block description %}AV Help is een vereniging die personen met een beperking ondersteunt bij uiteenlopende vragen en uitdagingen in het dagelijkse leven.{% endblock %}
 
-      <button class="theme-toggle" type="button" aria-label="Schakel naar dark mode" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">&#9728;</span><span class="theme-text visually-hidden">Dark mode</span></button>
-
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatie">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav id="main-nav" class="site-nav" aria-label="Hoofdnavigatie">
-        <ul>
-          <li><a href="{{ url_for('index') }}" data-nav="home">Home</a></li>
-          <li><a href="{{ url_for('over') }}" data-nav="over">Over</a></li>
-          <li><a href="{{ url_for('nieuws') }}" data-nav="nieuws">Nieuws</a></li>
-          <li><a href="{{ url_for('contact') }}" data-nav="contact" class="btn btn-nav">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="hero" data-reveal>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Lokale  vereniging voor andersvaliden</p>
-          <h1>Samen bouwen aan toegankelijkheid en gelijkheid.</h1>
-          <p class="lead">AVhelp wordt een warme, herkenbare en duidelijke plek voor mensen met een handicap, hun familie en iedereen die snel de juiste hulp zoekt in Hechtel-Eksel.</p>
-          <p class="hero-note">AVhelp biedt duidelijke informatie, korte lijnen en menselijk contact voor iedereen die ondersteuning zoekt in Hechtel-Eksel.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="{{ url_for('contact') }}"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>Zoek hulp</a>
-            <a class="btn btn-secondary" href="{{ url_for('contact') }}"><i class="fa-regular fa-circle-question" aria-hidden="true"></i>Stel een vraag</a>
-            <a class="btn btn-ghost" href="{{ url_for('contact') }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Neem contact op</a>
-          </div>
-          <div class="hero-trust">
-            <div>
-              <strong><i class="fa-regular fa-envelope" aria-hidden="true"></i> Mail</strong>
-              <span><a href="mailto:info@avhelp.be">info@avhelp.be</a></span>
-            </div>
-            <div>
-              <strong><i class="fa-solid fa-phone" aria-hidden="true"></i> Rik Weltjens</strong>
-              <span><a href="tel:+32475203005">+32 475 203 005</a></span>
-            </div>
-            <div>
-              <strong><i class="fa-solid fa-phone" aria-hidden="true"></i> Robin Agten</strong>
-              <span><a href="tel:+32478554189">+32 478 554 189</a></span>
-            </div>
-          </div>
+{% block content %}
+<section class="hero" data-reveal>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Wie zijn wij</p>
+      <h1>Samen bouwen aan toegankelijkheid en gelijkheid.</h1>
+      <p class="lead">AV Help is een vereniging die zich inzet voor het ondersteunen van personen met een beperking bij uiteenlopende vragen en uitdagingen in het dagelijkse leven.</p>
+      <p class="hero-note">Onze missie is om drempels te verlagen en mensen te begeleiden naar meer zelfstandigheid, comfort en een betere levenskwaliteit.</p>
+      <div class="hero-trust">
+        <div>
+          <strong><i class="fa-regular fa-envelope" aria-hidden="true"></i> Mail</strong>
+          <span><a href="mailto:info@avhelp.be">info@avhelp.be</a></span>
         </div>
-        <div class="hero-stack">
-          <aside class="hero-card hero-card-primary">
-            <p class="card-label">AVhelp dichtbij</p>
-            <h2>Snelle hulp en duidelijke informatie</h2>
-            <p>Op deze website vind je snel de juiste contactmogelijkheden, actuele activiteiten en heldere uitleg over wat AVhelp voor jou kan betekenen.</p>
-            <ul>
-              <li>duidelijke contactinformatie;</li>
-              <li>toegankelijke en leesbare teksten;</li>
-              <li>snelle acties voor mail en telefoon.</li>
-            </ul>
-          </aside>
-          <aside class="hero-card hero-card-quote">
-            <p class="card-label">Onze belofte</p>
-            <blockquote>Geinteresseerden moeten niet aarzelen om vragen te stellen of inlichtingen te vragen.</blockquote>
-            <p>Daarom staat contact niet verstopt, maar centraal in het ontwerp.</p>
-          </aside>
+        <div>
+          <strong><i class="fa-solid fa-phone" aria-hidden="true"></i> Rik</strong>
+          <span><a href="tel:+32475203005">+32 475 203 005</a></span>
+        </div>
+        <div>
+          <strong><i class="fa-solid fa-phone" aria-hidden="true"></i> Robin</strong>
+          <span><a href="tel:+32478554189">+32 478 554 189</a></span>
         </div>
       </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <p><strong>AVhelp Hechtel-Eksel</strong> | Samen bouwen aan toegankelijkheid en gelijkheid.</p>
-      <p>Laatste update: mei 2026 | <span id="year"></span></p>
     </div>
-  </footer>
-</body>
-</html>
+    <div class="hero-stack">
+      <aside class="hero-card hero-card-primary">
+        <p class="card-label">Onze missie</p>
+        <h2>Drempels verlagen, samen met jou</h2>
+        <p>We begeleiden mensen naar meer zelfstandigheid, comfort en een betere levenskwaliteit.</p>
+        <ul>
+          <li>ondersteuning bij dagelijkse vragen en uitdagingen;</li>
+          <li>advies dat past bij jouw situatie;</li>
+          <li>korte lijnen en menselijk contact.</li>
+        </ul>
+      </aside>
+      <aside class="hero-card hero-card-quote">
+        <p class="card-label">Onze belofte</p>
+        <blockquote>Niemand staat er alleen voor.</blockquote>
+        <p>We luisteren naar elke vraag en zoeken samen naar de beste oplossing.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-reveal>
+  <div class="container">
+    <div class="section-heading">
+      <h2>Waar wij voor staan</h2>
+      <p class="lead">Bij AV Help staan persoonlijke begeleiding, respect en betrokkenheid centraal.</p>
+    </div>
+    <div class="stats-strip">
+      <article class="stat-card">
+        <strong><i class="fa-solid fa-user-group" aria-hidden="true"></i> Persoonlijke begeleiding</strong>
+        <span>Elke vraag is anders. We nemen de tijd om jouw situatie te begrijpen voor we advies geven.</span>
+      </article>
+      <article class="stat-card">
+        <strong><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i> Respect</strong>
+        <span>Je beslist zelf. Wij geven de informatie en ondersteuning om die keuze te kunnen maken.</span>
+      </article>
+      <article class="stat-card">
+        <strong><i class="fa-solid fa-heart" aria-hidden="true"></i> Betrokkenheid</strong>
+        <span>We volgen op tot je verder kan, en zorgen dat niemand er alleen voor staat.</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section accent" data-reveal>
+  <div class="container">
+    <div class="section-heading">
+      <h2>Wat doen wij</h2>
+      <p class="lead">Wij bieden ondersteuning en advies rond onder meer:</p>
+    </div>
+    <ul class="chips" role="list">
+      <li class="chip"><i class="fa-solid fa-wheelchair-move" aria-hidden="true"></i> Mobiliteit</li>
+      <li class="chip"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Hulpmiddelen</li>
+      <li class="chip"><i class="fa-solid fa-van-shuttle" aria-hidden="true"></i> Vervoer</li>
+      <li class="chip"><i class="fa-solid fa-universal-access" aria-hidden="true"></i> Toegankelijkheid</li>
+      <li class="chip"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Administratieve vragen</li>
+      <li class="chip"><i class="fa-solid fa-file-pen" aria-hidden="true"></i> Invullen van documenten</li>
+      <li class="chip"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> Tegemoetkomingen</li>
+      <li class="chip"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> Overheidsdiensten</li>
+    </ul>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('diensten') }}"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>Ontdek alle ondersteuning</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-reveal>
+  <div class="container narrow callout-banner">
+    <h2>Samen bouwen we verder</h2>
+    <p>Samen bouwen we aan een samenleving waarin iedereen de ondersteuning krijgt die hij of zij nodig heeft om volwaardig te kunnen deelnemen.</p>
+    <div class="page-hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('contact') }}"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Neem contact op</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -12,27 +12,43 @@ OLD_SITE_DIR = Path(__file__).resolve().parent / "old_version"
 
 
 @app.get("/")
-@app.get("/index.html")
 def index():
     return render_template("index.html")
 
 
-@app.get("/over")
-@app.get("/over.html")
-def over():
-    return render_template("over.html")
-
-
-@app.get("/nieuws")
-@app.get("/nieuws.html")
-def nieuws():
-    return render_template("nieuws.html")
+@app.get("/diensten")
+def diensten():
+    return render_template("diensten.html")
 
 
 @app.get("/contact")
-@app.get("/contact.html")
 def contact():
     return render_template("contact.html")
+
+
+# Oude .html-adressen en de verdwenen pagina's (over, nieuws) blijven werken.
+LEGACY_ROUTES = {
+    "/index.html": "index",
+    "/diensten.html": "diensten",
+    "/contact.html": "contact",
+    "/over": "index",
+    "/over.html": "index",
+    "/nieuws": "index",
+    "/nieuws.html": "index",
+}
+
+
+def legacy_redirect(target: str):
+    return lambda: redirect(url_for(target), code=301)
+
+
+for rule, endpoint in LEGACY_ROUTES.items():
+    app.add_url_rule(
+        rule,
+        endpoint=f"legacy_{rule.strip('/').replace('.', '_')}",
+        view_func=legacy_redirect(endpoint),
+        methods=["GET"],
+    )
 
 
 @app.get("/old")
