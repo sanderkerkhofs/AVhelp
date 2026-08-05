@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-05
+
+### Contactgegevens gecentraliseerd
+- Persoonlijke e-mailadressen van Rik Weltjens (`hendrik.weltjens01@gmail.com`) en Robin Agten (`robin.agten@hotmail.com`) toegevoegd op de contactpagina.
+- Algemeen adres `info@avhelp.be` overal verwijderd.
+- Telefoonnummers en e-mailadressen op de homepage en in de footer verwijderd; deze staan voortaan uitsluitend op de contactpagina.
+- Footer- en homepage-links naar contactinfo verwijzen nu naar de contactpagina in plaats van rechtstreekse `mailto:`/`tel:`-links.
+
 ## 2026-08-04
 
 ### Sitestructuur herzien

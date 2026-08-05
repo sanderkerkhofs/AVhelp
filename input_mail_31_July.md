@@ -40,7 +40,7 @@ Samen bouwen we aan een samenleving waarin iedereen de ondersteuning krijgt die 
 ## 📞 Contact
 
 **Contactgegevens RIK**
-_(nog aan te vullen)_
+hendrik.weltjens01@gmail.com
 
 **Contactgegevens ROBIN**
-_(nog aan te vullen)_
+robin.agten@hotmail.com
