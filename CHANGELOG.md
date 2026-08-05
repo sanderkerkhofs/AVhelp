@@ -2,6 +2,13 @@
 
 ## 2026-08-05
 
+### Eenvoudigere, vlakkere lay-out
+- Alle gelaagde gradients en radial-shading (achtergrond, kaarten, hero-blokken, footer, filterpaneel) vervangen door vlakke kleuren uit de bestaande kleurenset.
+- Kaarten en blokken (info-cards, hero-cards, stat-cards, contactkaarten) gebruiken nu consequent dezelfde achtergrondkleur in plaats van elk hun eigen tint.
+- Groene accentvakken ("Onze belofte", "Wat doen wij", "Samen bouwen we verder", "Waarmee kunnen we je helpen?") krijgen niet langer een eigen groene achtergrond; ze zijn nu wit/donker zoals de rest van de kaarten.
+- Overbodig geworden dark-mode kleurregels voor die vakken opgeruimd.
+- Resultaat visueel gecontroleerd in light/dark mode en op mobiel/desktop.
+
 ### Contactgegevens gecentraliseerd
 - Persoonlijke e-mailadressen van Rik Weltjens (`hendrik.weltjens01@gmail.com`) en Robin Agten (`robin.agten@hotmail.com`) toegevoegd op de contactpagina.
 - Algemeen adres `info@avhelp.be` overal verwijderd.

@@ -40,7 +40,9 @@ Samen bouwen we aan een samenleving waarin iedereen de ondersteuning krijgt die 
 ## 📞 Contact
 
 **Contactgegevens RIK**
++32 475 203 005
 hendrik.weltjens01@gmail.com
 
 **Contactgegevens ROBIN**
 robin.agten@hotmail.com
++32 478 554 189
