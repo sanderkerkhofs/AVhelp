@@ -16,7 +16,7 @@
   --radius: 16px;
   --radius-sm: 10px;
   --container: 880px;
-  --header-bg: rgba(251, 253, 255, 0.88);
+  --header-bg: #fbfdff;
 
   /* Eén typografische ladder voor de hele site. */
   --fs-h1: clamp(2.1rem, 1.4rem + 2.6vw, 3.15rem);
@@ -45,7 +45,7 @@ html[data-theme="dark"] {
   --color-border: #2a4259;
   --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.35);
   --shadow-strong: 0 24px 56px rgba(0, 0, 0, 0.42);
-  --header-bg: rgba(13, 24, 36, 0.88);
+  --header-bg: #0d1824;
 }
 
 * {
@@ -165,11 +165,11 @@ p {
   outline-offset: 2px;
 }
 
+/* Header scrollt gewoon mee met de pagina: op kleine schermen blijft zo alle
+   ruimte over voor de inhoud. `relative` houdt het uitklapmenu eronder hangen. */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
-  backdrop-filter: blur(10px);
   background: var(--header-bg);
   border-bottom: 1px solid rgba(0, 59, 113, 0.09);
 }

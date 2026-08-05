@@ -2,6 +2,17 @@
 
 ## 2026-08-05
 
+### Header scrollt mee
+
+- De header was `position: sticky` en bleef bij het scrollen bovenaan staan; op mobiel kostte dat ongeveer een vijfde van het scherm op elke pagina. Hij scrollt nu gewoon mee, op mobiel én desktop.
+- `backdrop-filter: blur(10px)` en de halftransparante `--header-bg` verwijderd: die waren er alleen om tekst leesbaar te houden die onder de vastgezette balk doorliep. De headerachtergrond is nu een vlakke kleur (`#fbfdff` / `#0d1824`), passend bij de rest van de vlakke lay-out.
+- De header blijft `position: relative` zodat het mobiele uitklapmenu er nog steeds onder hangt.
+- Gecontroleerd op 390px en 1280px: header verdwijnt bij het scrollen, het uitklapmenu opent nog correct en de desktopnavigatie is onveranderd.
+
+#### Nog open
+
+- Navigatie is nu alleen bovenaan de pagina bereikbaar. Een header die verdwijnt bij scrollen naar beneden en terugkomt bij scrollen naar boven zou dat oplossen zonder de schermruimte terug in te leveren.
+
 ### Uniforme koppen, kaarten en witruimte
 
 #### Typografie
